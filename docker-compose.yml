@@ -1,0 +1,4 @@
+nagios:
+  image: docker_nagios
+  ports:
+    - "8080:80"
