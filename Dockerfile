@@ -76,7 +76,7 @@ RUN ( id -u $NAGIOS_USER    || useradd --system -d $NAGIOS_HOME -g $NAGIOS_GROUP
 # Install nagios core
 
 RUN cd /tmp                                                                             &&  \
-    git clone https://github.com/NagiosEnterprises/nagioscore.git -b nagios-4.3.1       &&  \
+    git clone https://github.com/NagiosEnterprises/nagioscore.git -b nagios-4.4.3       &&  \
     cd nagioscore                                                                       &&  \
     ./configure                                                                             \
         --prefix=${NAGIOS_HOME}                                                             \
@@ -101,7 +101,7 @@ RUN a2enconf nagios && \
 # Install nagios plugins
 
 RUN cd /tmp                                                                             &&  \
-    git clone https://github.com/nagios-plugins/nagios-plugins.git -b release-2.2.0     &&  \
+    git clone https://github.com/nagios-plugins/nagios-plugins.git -b release-2.2.1     &&  \
     cd nagios-plugins                                                                   &&  \
     ./tools/setup                                                                       &&  \
     ./configure                                                                             \
@@ -115,7 +115,7 @@ RUN cd /tmp                                                                     
 # Install nrpe server
 
 RUN cd /tmp                                                                             &&  \
-    git clone https://github.com/NagiosEnterprises/nrpe.git -b 3.0.1                    &&  \
+    git clone https://github.com/NagiosEnterprises/nrpe.git -b nrpe-3.2.1               &&  \
     cd nrpe                                                                             &&  \
     ./configure                                                                             \
         --with-ssl=/usr/bin/openssl                                                         \
